@@ -1,0 +1,12 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$primary-color : red;
+
+.container {
+    background-color: $primary-color;
+}
+$body-bg: #000;
+
+$body-color: #111;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
