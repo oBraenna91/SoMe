@@ -1,12 +1,14 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+$primary-color: #2D573A;
 
-$primary-color : red;
+.primary {
+    background-color:$primary-color;
+}
 
-.container {
+.dropdown-toggle {
     background-color: $primary-color;
 }
-$body-bg: #000;
 
-$body-color: #111;
+.post-button {
+    color: #FFFF;
+}
 
-@import "../node_modules/bootstrap/scss/bootstrap";
