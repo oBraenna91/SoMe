@@ -1,7 +1,15 @@
+@import "../styles/variables.scss" ;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+
 $primary-color: #2D573A;
 
 .primary {
     background-color:$primary-color;
+}
+.border-primary {
+    border-color:$primary-color;
 }
 
 .dropdown-toggle {
