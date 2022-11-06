@@ -8,10 +8,11 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, .btn:hover {
     text-decoration: underline;
     color: #FFF;
 }
+
 
 .nav-item {
     color: #FFFF;
