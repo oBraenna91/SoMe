@@ -12505,19 +12505,21 @@ fieldset:disabled .btn {
   }
 }
 
-.primary {
-  background-color: #2D573A;
-}
-
-.border-primary {
-  border-color: #2D573A;
-}
-
+/* sjekk ut under her */
 .dropdown-toggle {
   background-color: #2D573A;
 }
 
-.post-button {
+/* sjekk ut over her*/
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav-item {
   color: #FFFF;
 }
 

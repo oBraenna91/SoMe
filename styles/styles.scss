@@ -2,21 +2,25 @@
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-
+/* sjekk ut under her */
 $primary-color: #2D573A;
 
-.primary {
-    background-color:$primary-color;
-}
-.border-primary {
-    border-color:$primary-color;
-}
 
 .dropdown-toggle {
     background-color: $primary-color;
 }
 
-.post-button {
+/* sjekk ut over her*/
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav-item {
     color: #FFFF;
 }
 .contact-h2 {

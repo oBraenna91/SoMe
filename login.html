@@ -8,22 +8,22 @@
             <link rel="stylesheet" href="styles/styles.css">
         </head>
         <body>
-            <nav class="navbar primary d-flex justify-content-between">
-                <div class="dropdown ms-2">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Menu
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="index.html">Home</a></li>
-                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                    <li><a class="dropdown-item" href="login.html">Login</a></li>
-                    </ul>
+            <nav class="navbar navbar-dark bg-primary navbar-expand-md justify-content-between align-items-center"> 
+                <div class="col ms-2">
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav">
+                        <div class="navbar-toggler-icon"></div>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li><a class="nav-item mx-2" aria-current="page" href="index.html">Home</a></li>
+                            <li><a class="nav-item mx-2" href="profile.html">Profile</a></li>
+                            <li><a class="nav-item mx-2" href="login.html">Login</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="row justify-content-end me-1">
-                    <div class="col-8">
-                        <div class="input-group rounded">
-                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        </div>
+                <div class="col-5 me-2 col-sm-3 col-lg-2">
+                    <div class="input-group border border-5 border-primary rounded-5">
+                        <input type="search" class="form-control rounded-5" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                     </div>
                 </div>
             </nav>
