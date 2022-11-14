@@ -1,2 +1,2 @@
-# cssFrameworks CA
-Css Frameworks Course Assignment
+# JS2
+JS2 Course Assignment
