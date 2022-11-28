@@ -38,10 +38,7 @@
                     <div class="col-5 col-lg-3">
                         <img src="images/blank-profile-picture.webp" width="100%" alt="User Profile Image">
                     </div>
-                    <div class="col-auto">
-                        <p><strong>Name:</strong> Ola Nordmann</p>
-                        <p><strong>Age:</strong> 50</p>
-                        <p><strong>City:</strong> Oslo</p>
+                    <div class="col-auto" id="profile-user-info">
                     </div>
                 </div>
             </div> 
@@ -49,43 +46,6 @@
                 <div class="Feed mt-4 mx-2 border rounded-5 border-primary border-5 p-2">
                     <h2 class="mt-4">Your Posts</h2>
                     <div class="accordion mt-4" id="accordionPanelsStayOpenExample">
-                        <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                <strong>Post #1</strong>
-                            </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                            <div class="accordion-body">
-                            This is the first post and will by default be visible until closed.
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et leo nulla. Aenean condimentum fringilla sem at pretium. Praesent gravida neque sed finibus interdum. Praesent vel dignissim arcu. Nunc eu odio efficitur, eleifend lacus ut, tincidunt sem. Quisque nec lacus eget nibh luctus eleifend non consequat elit. Vestibulum ut mauris ex. Mauris nisi nisi, posuere sit amet interdum quis, rutrum sed purus. Nunc consequat diam in felis aliquam, eu pretium massa mattis. Sed bibendum facilisis orci at congue. Aenean ut nibh non arcu faucibus ultricies sit amet at justo. Maecenas pellentesque, risus ac facilisis maximus, metus nibh tincidunt ipsum, et dictum sem elit eget ante. Nam auctor tincidunt urna, quis venenatis leo gravida a. Nam tempus rutrum tellus. Vivamus vel libero quam.</p>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                <strong>Post #2</strong>
-                            </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                            <div class="accordion-body">
-                                <p>Quisque et euismod arcu. Sed sodales odio nec lacus ornare pretium. Sed imperdiet dui nec condimentum dictum. Cras hendrerit elit quis orci consequat, in eleifend ipsum hendrerit. Proin euismod, neque non placerat condimentum, erat nibh imperdiet ex, eu pellentesque nisl purus a lacus. Maecenas pulvinar volutpat diam. Vivamus sed dolor urna. Ut augue nisi, consectetur a volutpat sollicitudin, iaculis et ex. Curabitur ultricies purus at dapibus interdum. Sed vulputate velit eu vestibulum pulvinar. Proin eu tristique augue. Mauris cursus risus id dui interdum fermentum. Cras tempor porta nisi, eget commodo orci luctus sed. Phasellus gravida magna quis tortor tempus, non mattis velit feugiat.</p>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                                <strong>Post #3</strong>
-                            </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                            <div class="accordion-body">
-                                <p><p>Quisque et euismod arcu. Sed sodales odio nec lacus ornare pretium. Sed imperdiet dui nec condimentum dictum. Cras hendrerit elit quis orci consequat, in eleifend ipsum hendrerit. Proin euismod, neque non placerat condimentum, erat nibh imperdiet ex, eu pellentesque nisl purus a lacus. Maecenas pulvinar volutpat diam. Vivamus sed dolor urna. Ut augue nisi, consectetur a volutpat sollicitudin, iaculis et ex. Curabitur ultricies purus at dapibus interdum. Sed vulputate velit eu vestibulum pulvinar. Proin eu tristique augue. Mauris cursus risus id dui interdum fermentum. Cras tempor porta nisi, eget commodo orci luctus sed. Phasellus gravida magna quis tortor tempus, non mattis velit feugiat.</p></p>
-                            </div>
-                        </div>
-                        </div>
                     </div>
                     <div class="page-navigation">
                         <nav aria-label="Page navigation">
@@ -104,12 +64,17 @@
                         <div class="posts">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <label class="form-label"><h3>Add new post</h3></label>
-                                <div class="form-group col-9">
+                                <div class="form-group col-md-5 col-9">
                                     <div class="col-12">
-                                        <textarea class="form-control border border-3 border-primary rounded-5 p-3" rows="8" placeholder="What would you like to share?"></textarea>
+                                        <textarea class="form-control border border-3 border-primary rounded-5 mb-2 p-3" id="title-to-post"
+                                         rows="1" placeholder="What's the title of your post?"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea class="form-control border border-3 border-primary rounded-5 p-3" id="body-to-post"
+                                         rows="8" placeholder="What would you like to share?"></textarea>
                                     </div>
                                 </div>
-                                <button type ="button" class="btn bg-primary text-white post-button mt-4">Post</button>
+                                <button type ="button" class="btn bg-primary text-white my-2 col-2" id="post-button">Post</button>
                             </div>
                         </div>
                     </form>
@@ -197,4 +162,5 @@
             </footer>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+            <script src="js/profile.js"></script>
         </body>

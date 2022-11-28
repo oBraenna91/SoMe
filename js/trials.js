@@ -48,3 +48,33 @@ const postsUrl = `${API_BASE_URL}/social/posts`;
 getWithToken(postsUrl);
 
 
+//deleting entry
+
+// post-id: 3724
+
+
+async function deleteWithToken(url) {
+    try{
+        console.log(url);
+        const fetchOptions = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        };
+        const response = await fetch(url, fetchOptions);
+        console.log(response);
+        const json = await response.json();
+        console.log(json);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+const specificPostIdUrl = `${API_BASE_URL}/social/posts/3724`; //her vil du hente id til posten
+
+
+deleteWithToken(specificPostIdUrl);
+
+

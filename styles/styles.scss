@@ -20,3 +20,33 @@ a:hover, .btn:hover {
 .contact-h2 {
     font-size: 1.5em;
 }
+
+/* LOADING WHEEL */
+#loading-wheel {
+    border: .5em solid;
+    border-color: transparent;
+    border-top: .5em solid #FFB34B;
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+    animation: spin 3s linear infinite;
+    margin:auto;
+    display: none;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* LOADING WHEEL END*/
+
+#error-message {
+    display: none;
+}
+#register-success {
+    display:none;
+}
+#register-error-message, #user-already-exists {
+    display: none;
+}
+
