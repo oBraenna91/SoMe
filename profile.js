@@ -12,10 +12,6 @@ const postTitle = document.querySelector("#title-to-post");
 
 const postButton = document.querySelector("#post-button");
 
-const userInput = document.querySelector("#search-input");
-
-const searchButton = document.querySelector("#search-button");
-
 async function getWithToken(url) {
     try{
         //console.log(url);
@@ -175,7 +171,7 @@ async function findWithToken(url) {
         const profilePosts = await response.json();
         console.log(profilePosts);
         const foundPost = profilePosts.filter((post) => {
-            if(post.title.toLowerCase().includes(userInput.value.toLowerCase())) {
+            if(post.title.includes('J')) {
                 return true;
             }
         }
@@ -185,9 +181,7 @@ async function findWithToken(url) {
         console.log(error);
     }
 }
-searchButton.addEventListener('click', function onclickSearch() {
-    findWithToken(`${API_BASE_URL}/social/profiles/${userNameFromStorage}/posts`);
-    });
+findWithToken(`${API_BASE_URL}/social/profiles/${userNameFromStorage}/posts`);
 
 
 

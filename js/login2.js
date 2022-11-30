@@ -34,7 +34,7 @@ var loginUser = async function(url, data) {
     }
     if (result === true) {
         console.log("true");
-        //window.location.href = "/index.html";
+        window.location.href = "/index.html";
     }else {
         console.log("false");
         errormessage.style.display = "block";
