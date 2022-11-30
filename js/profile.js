@@ -174,13 +174,16 @@ async function findWithToken(url) {
         const response = await fetch(url, fetchOptions);
         const profilePosts = await response.json();
         console.log(profilePosts);
-        const foundPost = profilePosts.filter((post) => {
-            if(post.title.toLowerCase().includes(userInput.value.toLowerCase())) {
-                return true;
-            }
-        }
-        );
-        console.log(foundPost);
+        const newProfilePosts = profilePosts.filter((post) =>
+        JSON.stringify(post).toLowerCase().includes(userInput.value.toLowerCase()));
+        console.log(newProfilePosts);
+        //const foundPost = profilePosts.filter((post) => {
+          //  if(post.title.toLowerCase().includes(userInput.value.toLowerCase())) {
+            //    return true;
+            //}
+        //}
+        //);
+        //console.log(foundPost);
     }catch(error){
         console.log(error);
     }
