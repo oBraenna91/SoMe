@@ -59,3 +59,5 @@ btn1.addEventListener('click', function onClickRegister() {
     registerUser(`${API_BASE_URL}/social/auth/register`, userInfo);
 }
 );
+
+// REQUIRED PATTERN "^[\w\-.]+@(stud.)?noroff.no$"

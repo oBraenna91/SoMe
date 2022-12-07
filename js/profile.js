@@ -16,6 +16,8 @@ const userInput = document.querySelector("#search-input");
 
 const searchButton = document.querySelector("#search-button");
 
+const searchResults = document.querySelector("#search-results");
+
 async function getWithToken(url) {
     try{
         //console.log(url);
@@ -40,6 +42,7 @@ async function getWithToken(url) {
                 <div class="accordion-body">
                     <p>${profilePosts[0].body}</p>
                 </div>
+                <button type="button" class="btn btn-outline-primary delete-button" id="${profilePosts[0].id}">Delete</button>
             </div>
         </div>`;
         for (var i = 1; i < profilePosts.length; i++) {
@@ -54,47 +57,27 @@ async function getWithToken(url) {
                 <div class="accordion-body">
                     <p>${profilePosts[i].body}</p>
                 </div>
+                <button type="button" class="btn btn-outline-primary delete-button" id="${profilePosts[i].id}">Delete</button>
             </div>`
+        }
+        const deleteButtons = document.getElementsByClassName("delete-button");
+        const deleteButtonPressed = e => {
+            console.log(e.target.id);
+            const itemToDelete = e.target.id
+            localStorage.setItem('itemToDeleteId',itemToDelete);
+        }
+        for (let item of deleteButtons) {
+            item.addEventListener("click", deleteButtonPressed);
         }
     } catch(error) {
         console.log(error);
     }
 }
-
+//onclick="${deleteWithToken(`${API_BASE_URL}/social/posts/${profilePosts[i].id}`)}"
 const profileUrl = `${API_BASE_URL}/social/profiles/${userNameFromStorage}/posts`;
 
 
 getWithToken(profileUrl);
-
-const updated = {
-    "title" : "This post is updated",
-    "body": "And that's pretty cool",
-
-};
-
-async function updateWithToken(url, data) {
-    try{
-        const fetchOptions = {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify(data),
-        };
-        const response = await fetch(url, fetchOptions);
-        //console.log(response);
-        const json = await response.json();
-        //console.log(json);
-    } catch(error) {
-        console.log(error);
-    }
-}
-
-
-updateWithToken(`${API_BASE_URL}/social/posts/3710`, updated);
-
-//legge inn brukerens navn (og ev info på profile-siden)
 
 
 
@@ -110,9 +93,7 @@ async function profileWithToken(url, data) {
             },
         };
         const response = await fetch(url, fetchOptions);
-        //console.log(response);
         const json = await response.json();
-        //console.log(json);
         profileInfoContainer.innerHTML += 
             `<p> Name : ${userNameFromStorage}</p>
              <p> Email: ${json.email}</p>
@@ -163,7 +144,6 @@ postButton.addEventListener('click', function onClickPostEntry() {
 
 async function findWithToken(url) {
     try{
-        //console.log(url);
         const fetchOptions = {
             method: 'GET',
             headers: {
@@ -177,13 +157,22 @@ async function findWithToken(url) {
         const newProfilePosts = profilePosts.filter((post) =>
         JSON.stringify(post).toLowerCase().includes(userInput.value.toLowerCase()));
         console.log(newProfilePosts);
-        //const foundPost = profilePosts.filter((post) => {
-          //  if(post.title.toLowerCase().includes(userInput.value.toLowerCase())) {
-            //    return true;
-            //}
-        //}
-        //);
-        //console.log(foundPost);
+        for (var i = 0; i < newProfilePosts.length; i++) {
+        searchResults.innerHTML +=
+        `<li><a class="dropdown-item" href="results.html" id="${newProfilePosts[i].id}">${newProfilePosts[i].title}</a></li>`;}
+        const dropDownItem = document.getElementsByClassName("dropdown-item");
+        const itemPressed = e => {
+            console.log(e.target.id);
+            const clickedID = e.target.id
+            localStorage.setItem('id', clickedID );
+
+        }
+        for (let item of dropDownItem) {
+            item.addEventListener("click", itemPressed);
+        }
+
+        //"${API_BASE_URL}/social/posts/${newProfilePosts[i].id}"
+        
     }catch(error){
         console.log(error);
     }
@@ -192,5 +181,30 @@ searchButton.addEventListener('click', function onclickSearch() {
     findWithToken(`${API_BASE_URL}/social/profiles/${userNameFromStorage}/posts`);
     });
 
+async function deleteWithToken(url) {
+    try{
+        const deleteOptions = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        };
+        const response = await fetch(url, deleteOptions);
+
+        //"${API_BASE_URL}/social/posts/${newProfilePosts[i].id}"
+        
+    }catch(error){
+        console.log(error);
+    }
+}
+
+const deleteItemUrl = `${API_BASE_URL}/social/posts/`;
 
 
+
+
+    
+
+
+//deleteWithToken(specificPostIdUrl);

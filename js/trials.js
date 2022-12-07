@@ -77,4 +77,10 @@ const specificPostIdUrl = `${API_BASE_URL}/social/posts/3724`; //her vil du hent
 
 deleteWithToken(specificPostIdUrl);
 
-
+//const foundPost = profilePosts.filter((post) => {
+          //  if(post.title.toLowerCase().includes(userInput.value.toLowerCase())) {
+            //    return true;
+            //}
+        //}
+        //);
+        //console.log(foundPost);
