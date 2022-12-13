@@ -2,8 +2,6 @@ import { API_BASE_SOCIAL } from "../../constants/constants.mjs";
 
 import { authFetch } from "./authFetch.mjs";
 
-import { headers } from "./authFetch.mjs";
-
 const action = "/posts";
 const method = "POST";
 
@@ -14,6 +12,5 @@ export async function create(postData) {
         method, 
         body: JSON.stringify(postData)
     })
-    const post = await response.json();
-    console.log(post)
+    return await response.json();
 }
