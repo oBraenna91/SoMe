@@ -1,5 +1,5 @@
 import { API_BASE_SOCIAL } from "../../constants/constants.mjs";
-import * as storage from "../../handlers/storage.mjs";
+import * as storage from "../../storage/index.mjs";
 
 const action = "/auth/login";
 const method = "POST";
@@ -16,10 +16,10 @@ export async function login(profile) {
         body,
     })
 
-    const { accessToken, ...user} = await response.json();
+    const { accessToken, name} = await response.json();
 
     storage.saveToLocal("accessToken", accessToken);
-    storage.saveToLocal("user", user);
+    storage.saveToLocal("name", name);
     if (response.status === 200) {
         window.location.href = "/index.html";
     }

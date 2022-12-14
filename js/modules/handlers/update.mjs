@@ -1,7 +1,7 @@
-import { update } from "../api/posts/update.mjs"
-import { getPost } from "../api/read.mjs";
+import { update } from "../api/posts/index.mjs";
+import { getPost } from "../api/posts/index.mjs";
 
-export function setUpdateFormListener() {
+export async function setUpdateFormListener() {
     const form = document.querySelector("#updatePost");
 
     const url = new URL(location.href);

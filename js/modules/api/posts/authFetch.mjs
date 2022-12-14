@@ -1,4 +1,4 @@
-import { getFromLocal } from "../../handlers/storage.mjs";
+import { getFromLocal } from "../../storage/index.mjs";
 
 export function headers() {
     const token = getFromLocal('accessToken');

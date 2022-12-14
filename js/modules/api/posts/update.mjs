@@ -7,7 +7,7 @@ const method = "PUT";
 
 export async function update(postData) {
     if(!postData.id) {
-        throw new Error("post requires postID")
+        throw new Error("update requires postID")
     }
     const updatePostURL = `${API_BASE_SOCIAL}${action}/${postData.id}`
 
