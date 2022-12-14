@@ -46,6 +46,9 @@ export function router() {
             listeners.setUpdateFormListener();
             listeners.setRemovePostListener();
         break;
+        case '/search.html':
+            listeners.setSearchPostFormListener();
+        break;
     }
     
 }
