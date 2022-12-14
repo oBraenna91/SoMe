@@ -16,10 +16,10 @@ export async function login(profile) {
         body,
     })
 
-    const { accessToken, name} = await response.json();
+    const { accessToken, ...user} = await response.json();
 
     storage.saveToLocal("accessToken", accessToken);
-    storage.saveToLocal("name", name);
+    storage.saveToLocal("profile", user);
     if (response.status === 200) {
         window.location.href = "/index.html";
     }

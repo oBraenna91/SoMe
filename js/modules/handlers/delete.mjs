@@ -1,14 +1,14 @@
-import { update } from "../api/posts/index.mjs";
+import { remove } from "../api/posts/index.mjs";
 import { getPost } from "../api/posts/index.mjs";
 
-export async function setUpdateFormListener() {
+export async function setRemovePostListener() {
     const form = document.querySelector("#updatePost");
 
     const url = new URL(location.href);
     const id = url.searchParams.get("id");
 
     if(form) {
-        const button = document.querySelector("#update-button");
+        const button = document.querySelector("#delete-button");
         button.disabled = true;
 
         const post = await getPost(id);
@@ -20,13 +20,9 @@ export async function setUpdateFormListener() {
 
         form.addEventListener("submit", (event) => {
             event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            const post = Object.fromEntries(formData.entries());
             post.id = id;
 
-            update(post);
+            remove(id);
         })
     }
-
 }

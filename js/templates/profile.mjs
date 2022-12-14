@@ -1,4 +1,16 @@
 const postNumberOne = document.querySelector("#accordionPanelsStayOpenExample");
+const profileInfoContainer = document.querySelector("#profile-user-info");
+
+export async function profileUserInfo(user) {
+    return profileInfoContainer.innerHTML +=
+    `
+        <h2> Name : ${user.name}</h2>
+        <h2> Email: ${user.email}</h2>
+        <h3> Posts: ${user._count.posts}</h3>
+        <h3> Followers: ${user._count.followers}</h3>
+        <h3> Following: ${user._count.following} </h3>
+    `
+}
 
 export async function profileFirstPost(post) {
     return postNumberOne.innerHTML +=
