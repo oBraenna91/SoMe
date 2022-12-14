@@ -4,3 +4,4 @@ export * from "../handlers/login.mjs";
 export * from "../handlers/register.mjs";
 export * from "../handlers/delete.mjs";
 export * from "../handlers/search.mjs";
+export * from "../handlers/logout.mjs";

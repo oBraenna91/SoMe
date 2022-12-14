@@ -12,7 +12,7 @@ const profile = storage.getFromLocal("profile");
 export function router() {
     const path = location.pathname;
     switch (path) {
-        case '/login.html':
+        case '/index.html':
             listeners.setLoginFormListener();
         break;
         case '/register.html':
@@ -33,7 +33,7 @@ export function router() {
             }
             profileInfo();
         break;
-        case '/index.html':
+        case '/home.html':
             listeners.setCreatePostFormListener();
             postMethods.getPosts();
             async function homeFeed() {
@@ -48,6 +48,9 @@ export function router() {
         break;
         case '/search.html':
             listeners.setSearchPostFormListener();
+        break;
+        case '/logout.html':
+            listeners.setLogOutFormListener();
         break;
     }
     

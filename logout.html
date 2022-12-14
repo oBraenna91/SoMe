@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html lang="en">
         <head>
-            <title>Login</title>
+            <title>Log out</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="description" content="CSS FRAMEWORKS">
             <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -16,35 +16,22 @@
                     </button>
                     <div class="collapse navbar-collapse" id="nav">
                         <ul class="navbar-nav">
-                            <li class="my-1"><a class="nav-item mx-2" aria-current="page" href="index.html">Home</a></li>
-                            <li class="my-1"><a class="nav-item mx-2" href="profile.html">Profile</a></li>
-                            <li class="my-1"><a class="nav-item mx-2" href="login.html">Login</a></li>
-                            <li class="my-1"><a class="nav-item mx-2" href="search.html">Search</a></li>
+                            <li class="my-1"><a class="nav-item mx-2" href="index.html">Login</a></li>
+                            <li class="my-1"><a class="nav-item mx-2" href="register.html">Register</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
             <div class="login-page d-flex flex-column justify-content-center align-items-center">
-                <h1 class="mt-4">Login</h1>
+                <h1 class="mt-4">Log out</h1>
                 <div id="loading-wheel" class="my-3"></div>
-                <form class="row d-flex flex-column justify-content-center align-items-center g-4 mt-4" id="loginForm">
+                <form class="row d-flex flex-column justify-content-center align-items-center g-4 mt-4" id="logOutForm">
                     <div class="col-auto">
-                        <label for="staticEmail2" class="visually-hidden">Email</label>
-                        <input type="text" name="email" class="form-control" required title="e-mail address has to end with @stud.noroff.no or @noroff.no" 
-                        id="staticEmail2" placeholder="Username">
-                    </div>
-                    <div class="col-auto">
-                        <label for="inputPassword2" class="visually-hidden">Password</label>
-                        <input type="password" name="password" class="form-control" required pattern=".{8,}" title="minimum 8 characters" 
-                        id="inputPassword2" placeholder="Password">
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3" id="login-button">Log in</button>
+                        <button type="submit" class="btn btn-primary mb-3" id="login-button">Log out</button>
                     </div>
                 </form>
-                <div id="error-message">
-                    <h2>Oops! Something went wrong!</h2>
-                    <p>Please double check that your e-mail and password is correct!</p>
+                <div id="success-message">
+                    <h2>You are successfully logged out</h2>
                 </div>
             </div>
             <footer class="text-center mt-5 fixed-bottom">
