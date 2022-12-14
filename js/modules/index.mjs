@@ -15,13 +15,14 @@ if (path === '/login.html') {
 } else if (path === '/profile.html') {
     listeners.setCreatePostFormListener();
     postMethods.getProfilePosts(`${userName}`);
-} else if (path === '/posts/edit/') {
-    listeners.setUpdatePostFormListener();
+    async function testTemplate() {
+        const posts = await postMethods.getProfilePosts(`${userName}`);
+        profileFirstPost(posts);
+        profileNextPosts(posts);
+    }
+    testTemplate();
+} else if (path === '/edit.html') {
+    listeners.setUpdateFormListener();
 }
 
-async function testTemplate() {
-    const posts = await postMethods.getProfilePosts(`${userName}`);
-    profileFirstPost(posts);
-    profileNextPosts(posts);
-}
-testTemplate();
+

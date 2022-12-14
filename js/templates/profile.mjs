@@ -12,7 +12,7 @@ export async function profileFirstPost(post) {
             <div class="accordion-body">
                 <p>${post[0].body}</p>
             </div>
-            <a href="posts/edit/?id=${post[0].id}"><button type="button" class="btn btn-outline-primary edit-button">Edit</button></a>
+            <a href="edit.html?id=${post[0].id}"><button type="button" class="btn btn-outline-primary edit-button">Edit</button></a>
         </div>
     </div>`;
 }
@@ -30,7 +30,7 @@ export async function profileNextPosts(post) {
                 <div class="accordion-body">
                     <p>${post[i].body}</p>
                 </div>
-                <a href="posts/edit/?id=${post[0].id}"><button type="button" class="btn btn-outline-primary edit-button">Edit</button></a>
+                <a href="edit.html?id=${post[i].id}"><button type="button" class="btn btn-outline-primary edit-button">Edit</button></a>
             </div>`;
     }
 }
