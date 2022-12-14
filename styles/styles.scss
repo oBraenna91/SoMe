@@ -1,12 +1,22 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../styles/variables.scss" ;
 
-$primary-color : red;
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-.container {
-    background-color: $primary-color;
+$font-family-base: dinosaur, sans-serif; 
+
+a {
+    text-decoration: none;
 }
-$body-bg: #000;
 
-$body-color: #111;
+a:hover, .btn:hover {
+    text-decoration: underline;
+    color: #FFF;
+}
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+
+.nav-item {
+    color: #FFFF;
+}
+.contact-h2 {
+    font-size: 1.5em;
+}
