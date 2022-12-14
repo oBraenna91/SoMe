@@ -5,6 +5,13 @@ import { authFetch } from "./authFetch.mjs";
 const action = "/posts";
 const method = "PUT";
 
+/**
+ * This function will update a post using the "PUT" method with
+ * the authFetch function.
+ * @param {object} postData should contain the data of the post the user wants to update.
+ * ID is required.
+ * If no id provided, error will be shown.
+ */
 export async function update(postData) {
     if(!postData.id) {
         throw new Error("update requires postID")

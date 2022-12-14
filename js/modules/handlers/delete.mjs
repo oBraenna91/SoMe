@@ -1,28 +1,21 @@
 import { remove } from "../api/posts/index.mjs";
 import { getPost } from "../api/posts/index.mjs";
 
+/**
+ * This function deletes the selected post using the posts id.
+ * It finds the id of the post through the URL,
+ * and gives functionality to the delete post button,
+ * (see /posts/delete.mjs)
+ */
 export async function setRemovePostListener() {
-    const form = document.querySelector("#updatePost");
 
     const url = new URL(location.href);
     const id = url.searchParams.get("id");
+    const button = document.querySelector("#delete-button");
+        
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
 
-    if(form) {
-        const button = document.querySelector("#delete-button");
-        button.disabled = true;
-
-        const post = await getPost(id);
-
-        form.title.value = post.title;
-        form.body.value = post.body;
-
-        button.disabled = false;
-
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            post.id = id;
-
-            remove(id);
+        remove(id);
         })
     }
-}

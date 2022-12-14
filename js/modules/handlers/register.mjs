@@ -1,5 +1,12 @@
 import { register } from "../api/auth/register.mjs";
 
+/**
+ * This function registers a profile.
+ * This function sets an addEventListener to the register form,
+ * prevents default behaviour,
+ * uses the user input as body with the API request.
+ * (see /auth/login.mjs)
+ */
 export function setRegisterFormListener() {
     const form = document.querySelector("#registerForm"); 
 
