@@ -8,14 +8,19 @@ import * as handlers from "../js/modules/handlers/index.mjs";
 const profile = storage.getFromLocal("profile");
 
 router();
-
+/**
+ * This function creates the profile feed.
+ */
 async function profileFeed() {
     const posts = await postMethods.getProfilePosts(`${profile.name}`);
     templates.profileFirstPost(posts);
     templates.profileNextPosts(posts);
 }
 profileFeed();
-
+/**
+ * This function creates the profile info part of
+ * the profile page
+ */
 async function profileInfo(){
     const user = await getProfileInfo(`${profile.name}`);
     templates.profileUserInfo(user);
@@ -23,7 +28,9 @@ async function profileInfo(){
 profileInfo();
 
 templates.homePageWelcome(profile.name);
-
+/**
+ * This function creates the the home page feed.
+ */
 async function homeFeed() {
     const posts = await postMethods.getPosts();
     templates.homePageFeed(posts);

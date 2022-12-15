@@ -19,7 +19,6 @@ const profileInfoContainer = document.querySelector("#profile-user-info");
  * Following : 0 
  * ```
  */
-
 export async function profileUserInfo(user) {
     if(profileInfoContainer) {
     return profileInfoContainer.innerHTML +=

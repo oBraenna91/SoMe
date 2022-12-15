@@ -40,19 +40,3 @@ export async function getProfilePosts(name) {
     const profilePosts = await response.json();
     return profilePosts;
 }
-
-export async function getPostsCreatedAscending(){
-    const ascending = "?sort=created&sortOrder=asc";
-    const ascendingURL = `${API_BASE_SOCIAL}${action}${ascending}`
-    const response = await authFetch(ascendingURL);
-    return await response.json();
-}
-
-export async function getPostsCreatedDescending(){
-    const desc = "?sort=created&sortOrder=desc";
-    const descendingURL = `${API_BASE_SOCIAL}${action}${desc}`
-    const response = await authFetch(descendingURL);
-    return await response.json();
-}
-// GET /api/v1/social/posts?sort=created&sortOrder=desc
-// GET /api/v1/social/posts?sort=title&sortOrder=asc

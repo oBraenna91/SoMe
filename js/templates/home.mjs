@@ -50,7 +50,11 @@ export async function homePageWelcome(name) {
     }
 }
     
-
+/**
+ * This function will be used when the user want to sort the array.
+ * It clears out the unsorted feed before creating the sorted feed. 
+ * @param array is the array of posts the user wants to sort.
+ */
 export async function homePageFeedFiltered(array){
     feed.innerHTML = "";
     array.forEach((post) => {
