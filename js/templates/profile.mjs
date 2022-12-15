@@ -1,6 +1,25 @@
 const postNumberOne = document.querySelector("#accordionPanelsStayOpenExample");
 const profileInfoContainer = document.querySelector("#profile-user-info");
 
+/**
+ * This function displays profile information on the profile page.
+ * @param {object} user is the user profile. 
+ * @returns user name, email, post count, following and followers count displayed
+ * on the page.
+ * @example
+ * ```js
+ * // Use this function to display user info
+ * // on the profile page.
+ *  profileUserInfo(oleBraenna)
+ * // Returns info
+ * Name : oleBraenna
+ * Email : OleBra17268@stud.noroff.no
+ * Posts : 10
+ * Followers : 0
+ * Following : 0 
+ * ```
+ */
+
 export async function profileUserInfo(user) {
     return profileInfoContainer.innerHTML +=
     `
@@ -12,6 +31,13 @@ export async function profileUserInfo(user) {
     `
 }
 
+/**
+ * This function is a template for how the first post on the profile page will
+ * be displayed.
+ * @param { object } post is the retrieved posts from the API call.
+ * @returns the first post from the API call in an open panel with the
+ * title in the head and a button link with the id to the edit.html page.
+ */
 export async function profileFirstPost(post) {
     return postNumberOne.innerHTML +=
     `<div class="accordion-item">
@@ -29,6 +55,13 @@ export async function profileFirstPost(post) {
     </div>`;
 }
 
+/**
+ * This function is a template for how the next posts on the profile page will
+ * be displayed.
+ * @param { object } post is the retrieved posts from the API call.
+ * @returns the next posts from the API call in a closed panel with the
+ * title in the head and a button link with the id to the edit.html page.
+ */
 export async function profileNextPosts(post) {
     for (var i = 1; i < post.length; i++) {
         postNumberOne.innerHTML += 

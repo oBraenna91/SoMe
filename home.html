@@ -32,16 +32,21 @@
                 </div>
             </div>
             <div class="container">
-                <form class="post-from my-4">
+                <form class="post-from my-4" id="createPost">
                     <div class="posts">
                         <div class="d-flex flex-column justify-content-center align-items-center">
                             <label class="form-label"><h3>Add new post</h3></label>
                             <div class="form-group col-md-5 col-9">
                                 <div class="col-12">
-                                    <textarea class="form-control border border-3 border-primary rounded-5 p-3" id="add-post" rows="8" placeholder="What would you like to share?"></textarea>
+                                    <textarea class="form-control border border-3 border-primary rounded-5 mb-2 p-3" name="title" id="title-to-post"
+                                     rows="1" placeholder="What's the title of your post?"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control border border-3 border-primary rounded-5 p-3" name="body" id="body-to-post"
+                                     rows="8" placeholder="What would you like to share?" type="text"></textarea>
                                 </div>
                             </div>
-                            <button type ="button" class="btn bg-primary text-white my-2 col-2" id="button1">Post</button>
+                            <button type ="submit" class="btn bg-primary text-white my-2 col-2" id="post-button">Post</button>
                         </div>
                     </div>
                 </form>

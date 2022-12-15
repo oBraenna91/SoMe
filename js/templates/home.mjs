@@ -1,6 +1,12 @@
 const feed = document.querySelector("#accordionPanelsStayOpenExample");
 const message = document.querySelector("#welcome-message");
 
+/**
+ * This function is a template for how the feeed on the home page is displayed.
+ * @param {object} posts is the retrieved posts from the API call, the function puts the posts
+ * inside the feed container and displays the title in bold and in the head of the post,
+ * which can be seen when the body panel is closed.
+ */
 export async function homePageFeed(posts) {
     for (var i = 0; i < posts.length; i++) {
         feed.innerHTML += 
@@ -20,7 +26,18 @@ export async function homePageFeed(posts) {
         `
         }
 }
-
+/**
+ * This function creates a welcome message to the user on the home-page.
+ * @param { string } name is the users name
+ * @returns a greeting message.
+ * @example 
+ * ```js
+ * // Use this function to greet users on the home page.
+ * homePageWelcome('Ola');
+ * // Returns h1 greeting
+ * Welcome Ola
+ * ```
+ */
 export async function homePageWelcome(name) {
     return message.innerHTML +=
     `<h1> Welcome ${name}`;

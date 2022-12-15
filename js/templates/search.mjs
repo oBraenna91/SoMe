@@ -1,8 +1,14 @@
 const searchResultsContainer = document.querySelector("#accordionPanelsStayOpenExample");
 const hiddenResultsContainer = document.querySelector("#results-container");
 
+/**
+ * This function is the template for how the search results will be displayed.
+ * It will display the hidden results container and loop through the results,
+ * displaying them as open panels with the title in the head.
+ * @param { object } post will be the search results. 
+ */
 export async function searchResultsContainerTemplate(post) {
-    
+
     hiddenResultsContainer.style.display = "block";
 
     for (var i = 0; i < post.length; i++) { 

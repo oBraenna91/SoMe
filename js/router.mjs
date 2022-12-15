@@ -8,7 +8,10 @@ import { homePageFeed } from "./templates/home.mjs";
 import { getProfileInfo } from "../js/modules/api/profile/index.mjs";
 
 const profile = storage.getFromLocal("profile");
-
+/**
+ * This function will select which of the functions will be
+ * active by watching the location.pathname.
+ */
 export function router() {
     const path = location.pathname;
     switch (path) {

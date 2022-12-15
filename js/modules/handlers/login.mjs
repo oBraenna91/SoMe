@@ -1,6 +1,7 @@
 import { login } from "../api/auth/login.mjs";
 
 /**
+ * This function logs in a profile.
  * This function sets an addEventListener at the login form,
  * it prevents default behaviour of the form, takes the user input and
  * calls the login function with the input as body.
