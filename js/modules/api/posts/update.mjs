@@ -21,6 +21,11 @@ export async function update(postData) {
     const response = await authFetch(updatePostURL, {
         method, 
         body: JSON.stringify(postData)
-    }) 
-    return await response.json();
+    })
+    const result = await response.json();
+    if (response.ok === true) {
+        alert("Updated successfully!")
+        window.location.href = "/profile.html";
+    }
+    return  result;
 }

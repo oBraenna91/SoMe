@@ -18,5 +18,10 @@ export async function create(postData) {
         method, 
         body: JSON.stringify(postData)
     })
-    return await response.json();
+    const result = await response.json();
+    if (response.ok === true) {
+        alert("Posted successfully!")
+            location.reload();
+    }
+    return result;
 }
