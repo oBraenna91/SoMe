@@ -15,6 +15,8 @@ export async function setRemovePostListener() {
     if(button) {
         button.addEventListener("click", (event) => {
             remove(id);
+            alert("Post deleted")
+            window.location.href = "/profile.html";
             })
         }
 }
