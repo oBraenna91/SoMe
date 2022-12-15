@@ -5,3 +5,4 @@ export * from "../handlers/register.mjs";
 export * from "../handlers/delete.mjs";
 export * from "../handlers/search.mjs";
 export * from "../handlers/logout.mjs";
+export * from "../handlers/filter.mjs";

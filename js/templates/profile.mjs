@@ -1,5 +1,10 @@
-const postNumberOne = document.querySelector("#accordionPanelsStayOpenExample");
+import * as postMethods from "../modules/api/posts/index.mjs";
+import * as storage from "../modules/storage/index.mjs";
+import { getProfileInfo } from "../modules/api/profile/index.mjs";
+
+const postNumberOne = document.querySelector(".profileFeed");
 const profileInfoContainer = document.querySelector("#profile-user-info");
+const profile = storage.getFromLocal("profile");
 
 /**
  * This function displays profile information on the profile page.
@@ -21,6 +26,7 @@ const profileInfoContainer = document.querySelector("#profile-user-info");
  */
 
 export async function profileUserInfo(user) {
+    if(profileInfoContainer) {
     return profileInfoContainer.innerHTML +=
     `
         <h2> Name : ${user.name}</h2>
@@ -29,7 +35,8 @@ export async function profileUserInfo(user) {
         <h3> Followers: ${user._count.followers}</h3>
         <h3> Following: ${user._count.following} </h3>
     `
-}
+    }
+}   
 
 /**
  * This function is a template for how the first post on the profile page will
@@ -39,7 +46,8 @@ export async function profileUserInfo(user) {
  * title in the head and a button link with the id to the edit.html page.
  */
 export async function profileFirstPost(post) {
-    return postNumberOne.innerHTML +=
+    if(postNumberOne) {
+        return postNumberOne.innerHTML +=
     `<div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -53,7 +61,9 @@ export async function profileFirstPost(post) {
             <a href="edit.html?id=${post[0].id}"><button type="button" class="btn btn-outline-primary edit-button">Edit</button></a>
         </div>
     </div>`;
+    }
 }
+    
 
 /**
  * This function is a template for how the next posts on the profile page will
@@ -63,19 +73,22 @@ export async function profileFirstPost(post) {
  * title in the head and a button link with the id to the edit.html page.
  */
 export async function profileNextPosts(post) {
-    for (var i = 1; i < post.length; i++) {
-        postNumberOne.innerHTML += 
-        `<div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-heading${[i]}">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse${[i]}" aria-expanded="false" aria-controls="panelsStayOpen-collapse${[i]}">
-                    <strong>${post[i].title}</strong>
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapse${[i]}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading${[i]}">
-                <div class="accordion-body">
-                    <p>${post[i].body}</p>
-                </div>
-                <a href="edit.html?id=${post[i].id}"><button type="button" class="btn btn-outline-primary edit-button">Edit</button></a>
-            </div>`;
+    if(postNumberOne) {
+        for (var i = 1; i < post.length; i++) {
+            postNumberOne.innerHTML += 
+            `<div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-heading${[i]}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse${[i]}" aria-expanded="false" aria-controls="panelsStayOpen-collapse${[i]}">
+                        <strong>${post[i].title}</strong>
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapse${[i]}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading${[i]}">
+                    <div class="accordion-body">
+                        <p>${post[i].body}</p>
+                    </div>
+                    <a href="edit.html?id=${post[i].id}"><button type="button" class="btn btn-outline-primary edit-button">Edit</button></a>
+                </div>`;
+        }
     }
 }
+

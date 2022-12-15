@@ -1,5 +1,8 @@
-const feed = document.querySelector("#accordionPanelsStayOpenExample");
+import * as postMethods from "../modules/api/posts/index.mjs";
+
+const feed = document.querySelector(".homePageFeed");
 const message = document.querySelector("#welcome-message");
+
 
 /**
  * This function is a template for how the feeed on the home page is displayed.
@@ -8,24 +11,27 @@ const message = document.querySelector("#welcome-message");
  * which can be seen when the body panel is closed.
  */
 export async function homePageFeed(posts) {
-    for (var i = 0; i < posts.length; i++) {
-        feed.innerHTML += 
-        `
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-heading${[i]}">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse${[i]}" aria-expanded="true" aria-controls="panelsStayOpen-collapse${[i]}">
-                    <strong>${posts[i].title}</strong>
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapse${[i]}" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading${[i]}">
-                <div class="accordion-body">
-                    <p>${posts[i].body}</p>
+    if(feed) {
+        for (var i = 0; i < posts.length; i++) {
+            feed.innerHTML += 
+            `
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-heading${[i]}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse${[i]}" aria-expanded="true" aria-controls="panelsStayOpen-collapse${[i]}">
+                        <strong>${posts[i].title}</strong>
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapse${[i]}" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading${[i]}">
+                    <div class="accordion-body">
+                        <p>${posts[i].body}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        `
-        }
+            `
+            }
+    }
 }
+    
 /**
  * This function creates a welcome message to the user on the home-page.
  * @param { string } name is the users name
@@ -39,6 +45,9 @@ export async function homePageFeed(posts) {
  * ```
  */
 export async function homePageWelcome(name) {
-    return message.innerHTML +=
+    if(message) {
+        return message.innerHTML +=
     `<h1> Welcome ${name}`;
+    }
 }
+    

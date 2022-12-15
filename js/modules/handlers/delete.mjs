@@ -11,10 +11,11 @@ export async function setRemovePostListener() {
     const url = new URL(location.href);
     const id = url.searchParams.get("id");
     const button = document.querySelector("#delete-button");
-        
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        remove(id);
-        })
-    }
+    
+    if(button) {
+        button.addEventListener("click", (event) => {
+            remove(id);
+            })
+        }
+}
+    
