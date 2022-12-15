@@ -30,5 +30,4 @@ export function router() {
             listeners.setLogOutFormListener();
         break;
     }
-    
 }

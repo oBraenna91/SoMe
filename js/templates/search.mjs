@@ -10,6 +10,7 @@ const hiddenResultsContainer = document.querySelector("#results-container");
 export async function searchResultsContainerTemplate(post) {
 
     hiddenResultsContainer.style.display = "block";
+    searchResultsContainer.innerHTML = "";
 
     for (var i = 0; i < post.length; i++) { 
     searchResultsContainer.innerHTML +=

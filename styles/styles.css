@@ -12578,4 +12578,8 @@ a:hover, .btn:hover {
 #success-message {
   display: none;
 }
+
+#searchFail {
+  display: none;
+}
 /*# sourceMappingURL=styles.css.map */
