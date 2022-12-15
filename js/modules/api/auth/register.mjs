@@ -34,7 +34,13 @@ export async function register(profile) {
     }) 
 
     const result = await response.json();
+    if (response.status === 201) {
     alert("Profile registered successfully");
     window.location.href = "/index.html";
+    }else if (response.status === 400) {
+        alert("Profile already exists!");
+    }else if (response.ok != true){
+        alert("Something went wrong, please try again!")
+    }
     return result;
 }
