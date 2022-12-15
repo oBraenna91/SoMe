@@ -1,5 +1,3 @@
-import * as postMethods from "../modules/api/posts/index.mjs";
-
 const feed = document.querySelector(".homePageFeed");
 const message = document.querySelector("#welcome-message");
 
@@ -31,7 +29,8 @@ export async function homePageFeed(posts) {
             }
     }
 }
-    
+
+
 /**
  * This function creates a welcome message to the user on the home-page.
  * @param { string } name is the users name
@@ -51,3 +50,24 @@ export async function homePageWelcome(name) {
     }
 }
     
+
+export async function homePageFeedFiltered(array){
+    feed.innerHTML = "";
+    array.forEach((post) => {
+    feed.innerHTML += 
+`
+<div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-heading${post.id}">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse${post.id}" aria-expanded="true" aria-controls="panelsStayOpen-collapse${post.id}">
+            <strong>${post.title}</strong>
+        </button>
+    </h2>
+    <div id="panelsStayOpen-collapse${post.id}" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading${post.id}">
+        <div class="accordion-body">
+            <p>${post.body}</p>
+        </div>
+    </div>
+</div>
+`
+    })
+}

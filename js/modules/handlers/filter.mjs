@@ -1,37 +1,46 @@
 import * as read from "../api/posts/read.mjs";
+import * as templates from "../../templates/index.mjs";
 
+const homePageFeedContainer = document.querySelector(".homePageFeed");
 
-export function setAscFilterPostFormListener() {
-    const button1 = document.querySelector("#filterAsc");
+const array = await read.getPosts()
 
-        button1.addEventListener("click", (event) => {
-            //event.preventDefault();
-            
-            read.getPostsCreatedAscending();
-        })
-    }
-
-export function setDescFilterPostFormListener() {
-    const button2 = document.querySelector("#filterDesc");
-
-        button2.addEventListener("click", (event) => {
-            //event.preventDefault();
-            
-            read.getPostsCreatedDescending();
-        })
-    }
-
-export function setFilterListener() {
-    const button1 = document.querySelector("#filterAsc");
-    const button2 = document.querySelector("#filterDesc");
+export async function filterFeed() {
     const parent = document.querySelector("#parent");
 
     parent.addEventListener("click", (event) => {
+        const feed = document.querySelector(".homePageFeed");
+    
         if(event.target.id === "filterAsc") {
-            read.getPostsCreatedAscending();
+            array.sort((a, b) => {
+                let titleA = a.title.toLowerCase(),
+                    titleB = b.title.toLowerCase();
+                    if (titleA < titleB) {
+                        return -1;
+                    }
+                    if (titleA > titleB){
+                        return 1;
+                    }
+                    return 0;
+            });
+            array.forEach((post) => {
+                templates.homePageFeedFiltered(array)
+            })
         } else if(event.target.id === "filterDesc") {
-            read.getPostsCreatedDescending();
+        array.sort((a, b) => {
+            let titleA = a.title.toLowerCase(),
+                titleB = b.title.toLowerCase();
+                if (titleA > titleB) {
+                    return -1;
+                }
+                if (titleA < titleB){
+                    return 1;
+                }
+                return 0;
+        });
+        array.forEach((post) => {
+            templates.homePageFeedFiltered(array)
+        })
         }
     })
 }
-

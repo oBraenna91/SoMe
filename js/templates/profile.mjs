@@ -1,10 +1,5 @@
-import * as postMethods from "../modules/api/posts/index.mjs";
-import * as storage from "../modules/storage/index.mjs";
-import { getProfileInfo } from "../modules/api/profile/index.mjs";
-
 const postNumberOne = document.querySelector(".profileFeed");
 const profileInfoContainer = document.querySelector("#profile-user-info");
-const profile = storage.getFromLocal("profile");
 
 /**
  * This function displays profile information on the profile page.

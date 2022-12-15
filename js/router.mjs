@@ -18,7 +18,7 @@ export function router() {
         break;
         case '/home.html':
             listeners.setCreatePostFormListener();
-            listeners.setFilterListener();
+            listeners.filterFeed();
         case '/edit.html':
             listeners.setUpdateFormListener();
             listeners.setRemovePostListener();
