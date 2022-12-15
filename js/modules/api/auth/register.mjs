@@ -35,5 +35,6 @@ export async function register(profile) {
 
     const result = await response.json();
     alert("Profile registered successfully");
+    window.location.href = "/index.html";
     return result;
 }

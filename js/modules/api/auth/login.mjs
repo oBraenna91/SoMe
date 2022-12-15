@@ -37,6 +37,7 @@ export async function login(profile) {
     storage.saveToLocal("accessToken", accessToken);
     storage.saveToLocal("profile", user);
     if (response.status === 200) {
+        alert("You are now logged in!")
         window.location.href = "/home.html";
     }
 }
