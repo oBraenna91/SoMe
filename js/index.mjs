@@ -6,7 +6,6 @@ import { getProfileInfo } from "../js/modules/api/profile/index.mjs";
 import * as handlers from "../js/modules/handlers/index.mjs";
 
 const profile = storage.getFromLocal("profile");
-const homePageFeedContainer = document.querySelector(".homePageFeed");
 
 router();
 
@@ -28,7 +27,6 @@ templates.homePageWelcome(profile.name);
 async function homeFeed() {
     const posts = await postMethods.getPosts();
     templates.homePageFeed(posts);
-    
 }
 homeFeed();
 

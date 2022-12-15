@@ -13,7 +13,6 @@ export async function search(keyword) {
     const posts = await getPosts();
     const postResults = posts.filter((post) =>
         JSON.stringify(post).toLowerCase().includes(keyword));
-        console.log(postResults);
         if(postResults.length === 0) {
             noResultsMessage.style.display = "block";
         } else if(postResults.length != 0){
