@@ -39,5 +39,7 @@ export async function login(profile) {
     if (response.status === 200) {
         alert("You are now logged in!")
         window.location.href = "/home.html";
+    }else if (response.ok != true){
+        alert("Something went wrong, please try again!")
     }
 }
