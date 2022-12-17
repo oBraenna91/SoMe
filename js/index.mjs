@@ -1,13 +1,15 @@
-import {router} from "../js/router.mjs";
+import { router } from "../js/router.mjs";
 import * as postMethods from "../js/modules/api/posts/index.mjs";
 import * as storage from "../js/modules/storage/index.mjs";
 import * as templates from "../js/templates/index.mjs";
-import { getProfileInfo } from "../js/modules/api/profile/index.mjs";
 import * as handlers from "../js/modules/handlers/index.mjs";
+import { getProfileInfo } from "./modules/api/profile/index.mjs";
+
 
 const profile = storage.getFromLocal("profile");
 
 router();
+
 /**
  * This function creates the profile feed.
  */
@@ -36,4 +38,3 @@ async function homeFeed() {
     templates.homePageFeed(posts);
 }
 homeFeed();
-
