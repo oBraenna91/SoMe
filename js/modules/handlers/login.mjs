@@ -8,7 +8,6 @@ import { login } from "../api/auth/login.mjs";
  * (see /auth/login.mjs)
  */
 export function setLoginFormListener() {
-    console.log("hei");
     const form = document.querySelector("#loginForm");
 
     form.addEventListener("submit", (event) => {
